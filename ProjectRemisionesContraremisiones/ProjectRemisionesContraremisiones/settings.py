@@ -29,6 +29,12 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+CORS_ORIGIN_ALLOW_ALL = True
+
+# dominios que pueden realizar peticiones
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:8080',
+)
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -39,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'appRegistrarRem',
     'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -49,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'ProjectRemisionesContraremisiones.urls'
